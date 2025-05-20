@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticação Concluída - Estilo Kuromi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Open+Sans:wght@400;700&display=swap'); /* Fonte estilo "fofa" e fonte normal */
+
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #FFC0CB 0%, #E6E6FA 50%, #800080 100%); /* Gradiente de rosa, lilás e roxo */
+            color: #4B0082; /* Roxo escuro para o texto */
+            text-align: center;
+            overflow: hidden; /* Para esconder qualquer parte dos corações que saiam */
+            position: relative;
+        }
+
+        /* Efeito de corações flutuantes - Kuromi Style */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            width: 150px; /* Tamanho do coração */
+            height: 150px;
+            background-color: rgba(255, 192, 203, 0.3); /* Rosa claro transparente */
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            animation: floatHearts 15s infinite ease-in-out alternate;
+        }
+
+        body::before {
+            left: -50px;
+            top: -50px;
+            transform: rotate(45deg);
+        }
+
+        body::after {
+            right: -50px;
+            bottom: -50px;
+            transform: rotate(-45deg);
+            animation-delay: 7.5s; /* Para um efeito de flutuação diferente */
+            background-color: rgba(128, 0, 128, 0.3); /* Roxo transparente */
+        }
+
+        @keyframes floatHearts {
+            0% { transform: translate(0, 0) rotate(45deg); opacity: 0.8; }
+            50% { transform: translate(20px, 30px) rotate(50deg); opacity: 0.6; }
+            100% { transform: translate(0, 0) rotate(45deg); opacity: 0.8; }
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Branco semitransparente */
+            padding: 40px;
+            border-radius: 20px; /* Bordas mais arredondadas */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            position: relative; /* Para posicionar a imagem da Kuromi */
+            z-index: 1; /* Para garantir que o conteúdo fique acima dos corações */
+        }
+
+        .kuromi-icon {
+            width: 120px;
+            height: auto;
+            margin-bottom: 25px;
+            animation: bounce 2s infinite ease-in-out; /* Efeito de "pulo" suave */
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-family: 'Cherry Bomb One', cursive; /* Fonte "fofa" para o título */
+            color: #800080; /* Roxo escuro */
+            margin-bottom: 20px;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px rgba(255, 192, 203, 0.7); /* Sombra rosa claro */
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            color: #6A0DAD; /* Roxo mais claro */
+        }
+
+        .discord-button {
+            background-color: #4B0082; /* Roxo escuro da Kuromi */
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px; /* Botão mais arredondado (pílula) */
+            font-size: 1.2em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex; /* Para alinhar o ícone se for adicionado */
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .discord-button:hover {
+            background-color: #800080; /* Roxo mais vibrante ao passar o mouse */
+            transform: translateY(-3px); /* Efeito de "levantar" */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Ícone do Discord no botão */
+        .discord-button::before {
+            content: url();
+            width: 12px; /* Tamanho do ícone SVG */
+            height: 24px;
+            margin-right: 5px;
+        }
+
+        /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+                border-radius: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .discord-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            .kuromi-icon {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            p {
+                font-size: 0.9em;
+            }
+            .discord-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            .kuromi-icon {
+                width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://d2ur3228349jyd.cloudfront.net/assets/img/characters/mv/kuromi.png" alt="Kuromi Icon" class="kuromi-icon">
+        <h1>Uhm, Autenticação Concluída!</h1>
+        <p>Você foi autenticado com sucesso, Agora você pode voltar para o nosso servidor Discord e continuar a diversão.</p>
+        <a href="https://discord.gg/qZep65z" target="_blank" class="discord-button">
+            Voltar para o Servidor Discord
+        </a>
+    </div>
+
+    <script>
+        // Este script tenta fechar a janela, mas não é garantido em todos os navegadores/cenários
+        // Especialmente se a janela não foi aberta por um script do seu próprio domínio.
+        // Para o botão de "Voltar para o Discord", o link direto é mais confiável.
+        window.onload = function() {
+            // Tenta fechar a janela automaticamente após um pequeno atraso, como em fluxos de OAuth.
+            // No entanto, para o usuário que clica no botão, o link é a forma mais direta.
+            setTimeout(function() {
+                if (window.opener) {
+                    window.close();
+                }
+            }, 3000); // Tenta fechar após 3 segundos
+        };
+
+        // A função para o botão agora simplesmente redireciona, pois o link faz isso diretamente.
+        // Você pode remover o onclick="goBackToDiscord()" do botão se o link for suficiente.
+        // Deixei o script de window.close() acima para casos onde um redirecionamento automático é desejado
+        // após o sucesso do OAuth, antes mesmo do usuário interagir com a página.
+    </script>
+</body>
+</html>
